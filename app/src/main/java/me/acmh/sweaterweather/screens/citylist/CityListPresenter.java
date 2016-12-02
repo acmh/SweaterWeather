@@ -17,18 +17,31 @@ import me.acmh.sweaterweather.utils.OpenWeatherUtils;
 
 public class CityListPresenter implements CityListContract.Presenter {
     private final OpenWeatherRepository mRepository;
-    private final CityListContract.View mView;
+    private CityListContract.View mView;
     private final String mApiKey;
     private final double lat;
     private final double lon;
+    private static CityListPresenter INSTANCE;
 
-    public CityListPresenter(OpenWeatherRepository mRepository, CityListContract.View mView, double lat, double lon) {
+    private CityListPresenter(OpenWeatherRepository mRepository, CityListContract.View mView, double lat, double lon) {
         this.mRepository = mRepository;
         this.mView = mView;
         mView.setPresenter(this);
         this.mApiKey = BuildConfig.API_KEY_OWMAP;
         this.lat = lat;
         this.lon = lon;
+    }
+
+    public static void init(OpenWeatherRepository mRepository, CityListContract.View mView, double lat, double lon){
+        INSTANCE = new CityListPresenter(mRepository,mView, lat, lon);
+    }
+
+    public static CityListPresenter getInstance(CityListContract.View mView){
+        if(INSTANCE != null){
+            INSTANCE.setView(mView);
+            mView.setPresenter(INSTANCE);
+        }
+        return INSTANCE;
     }
 
 
@@ -56,7 +69,7 @@ public class CityListPresenter implements CityListContract.Presenter {
 
     @Override
     public void setView(BaseView view) {
-
+        mView = (CityListContract.View) view;
     }
 
 

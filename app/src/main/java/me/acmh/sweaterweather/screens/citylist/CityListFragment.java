@@ -29,9 +29,13 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     private CityListAdapter mCityListAdapter;
     private RecyclerView rv_cityList;
     private ProgressDialog progress;
+    private static CityListFragment INSTANCE;
 
-    public static CityListFragment newInstance() {
-        return new CityListFragment();
+    public static CityListFragment getInstance() {
+        if(INSTANCE == null){
+            INSTANCE = new CityListFragment();
+        }
+        return INSTANCE;
     }
 
     @Nullable
@@ -76,7 +80,8 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     @Override
     public void onLoadCityList(List<City> cities) {
         mCityListAdapter.setCityList(cities);
-        progress.dismiss();
+
+        dissmissDialogIfShowing();
     }
 
     @Override
@@ -98,9 +103,22 @@ public class CityListFragment extends Fragment implements CityListContract.View,
 
     @Override
     public void onLoadCityListError() {
-        progress.dismiss();
+        dissmissDialogIfShowing();
 
         Snackbar.make(getView(),"There is no data for this location", Snackbar.LENGTH_INDEFINITE).show();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        dissmissDialogIfShowing();
+    }
+
+    private void dissmissDialogIfShowing(){
+        if(progress != null){
+            progress.dismiss();
+            progress = null;
+        }
     }
 }
 

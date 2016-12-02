@@ -35,7 +35,7 @@ public class CityListActivity extends AppCompatActivity {
         CityListFragment fragment = (CityListFragment) getSupportFragmentManager().findFragmentById(R.id.content_frame);
 
         if (fragment == null ){
-            fragment = CityListFragment.newInstance();
+            fragment = CityListFragment.getInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.content_frame);
         }
 
@@ -55,8 +55,9 @@ public class CityListActivity extends AppCompatActivity {
 
         ImageLoader.getInstance().init(config);
 
-
-        new CityListPresenter(repositoryInstance, fragment, lat, lon);
+        if(CityListPresenter.getInstance(fragment) == null){
+            CityListPresenter.init(repositoryInstance, fragment, lat, lon);
+        }
     }
 
     @Override
