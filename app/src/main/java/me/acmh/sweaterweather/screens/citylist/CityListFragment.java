@@ -1,8 +1,10 @@
 package me.acmh.sweaterweather.screens.citylist;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +28,7 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     private CityListContract.Presenter mPresenter;
     private CityListAdapter mCityListAdapter;
     private RecyclerView rv_cityList;
+    private ProgressDialog progress;
 
     public static CityListFragment newInstance() {
         return new CityListFragment();
@@ -48,6 +51,8 @@ public class CityListFragment extends Fragment implements CityListContract.View,
         rv_cityList.setAdapter(mCityListAdapter);
     }
 
+
+
     @Override
     public void onClick(View view) {
         int position = rv_cityList.getChildLayoutPosition(view);
@@ -69,18 +74,33 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     }
 
     @Override
-    public void onLoadCityLst(List<City> cities) {
+    public void onLoadCityList(List<City> cities) {
         mCityListAdapter.setCityList(cities);
+        progress.dismiss();
     }
 
     @Override
-    public void showLoadingCityList(City c) {
+    public void showCityInformationUI(City c) {
         Intent it = new Intent(getActivity(), CityInformationActivity.class);
         it.putExtra("name", c.getNome());
         it.putExtra("description", c.getWeatherDescription());
         it.putExtra("maxTemp", c.getMaxTemperature());
         it.putExtra("minTemp", c.getMinTemperature());
         startActivity(it);
+    }
+
+    @Override
+    public void showLoading() {
+        progress = ProgressDialog.show(getContext(), "Loading",
+                "Fetching City List", true);
+
+    }
+
+    @Override
+    public void onLoadCityListError() {
+        progress.dismiss();
+
+        Snackbar.make(getView(),"There is no data for this location", Snackbar.LENGTH_INDEFINITE).show();
     }
 }
 

@@ -10,8 +10,11 @@ import me.acmh.sweaterweather.screens.map.MapContract;
 
 public interface CityListContract {
     interface View extends BaseView<CityListContract.Presenter> {
-        void onLoadCityLst(List<City> cities);
-        void showLoadingCityList(City c);
+        void onLoadCityList(List<City> cities);
+        void showCityInformationUI(City c);
+        void showLoading();
+        void onLoadCityListError();
+
     }
 
     interface Presenter extends BasePresenter {

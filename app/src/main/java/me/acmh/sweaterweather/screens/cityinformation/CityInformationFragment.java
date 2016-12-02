@@ -39,10 +39,10 @@ public class CityInformationFragment extends Fragment implements CityInformation
         tv_city_name.setText(name);
 
         TextView tv_max_temp = (TextView) getView().findViewById(R.id.max_temp);
-        tv_max_temp.setText(Double.toString(max_temp)+"ºC");
+        tv_max_temp.setText(String.format("%.2f",max_temp)+"ºC");
 
         TextView tv_min_temp = (TextView) getView().findViewById(R.id.min_temp);
-        tv_min_temp.setText(Double.toString(min_temp) + "ºC");
+        tv_min_temp.setText(String.format("%.2f",min_temp) + "ºC");
 
         TextView tv_description = (TextView) getView().findViewById(R.id.description);
         tv_description.setText(description);

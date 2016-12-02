@@ -1,8 +1,6 @@
 package me.acmh.sweaterweather.screens.citylist;
 
-import android.content.Intent;
-
-import com.google.android.gms.maps.model.LatLng;
+import android.util.Log;
 
 import java.util.List;
 
@@ -36,6 +34,7 @@ public class CityListPresenter implements CityListContract.Presenter {
 
     @Override
     public void start() {
+        mView.showLoading();
         loadCityList();
     }
 
@@ -44,12 +43,12 @@ public class CityListPresenter implements CityListContract.Presenter {
         mRepository.requestWeatherData(lat, lon, OpenWeatherUtils.RESULT_COUNT, mApiKey, new OpenWeatherDataSource.RequestWeatherDataCallback() {
             @Override
             public void onSucess(List<City> cities) {
-                mView.onLoadCityLst(cities);
+                mView.onLoadCityList(cities);
             }
 
             @Override
             public void onError() {
-                //TODO ERROR
+                mView.onLoadCityListError();
             }
         });
 
@@ -64,6 +63,7 @@ public class CityListPresenter implements CityListContract.Presenter {
 
     @Override
     public void openCityDetails(City c) {
-        mView.showLoadingCityList(c);
+
+        mView.showCityInformationUI(c);
     }
 }
