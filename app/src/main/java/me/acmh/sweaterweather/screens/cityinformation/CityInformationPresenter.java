@@ -1,6 +1,8 @@
 package me.acmh.sweaterweather.screens.cityinformation;
 
 
+import android.util.Log;
+
 import me.acmh.sweaterweather.bases.BaseView;
 
 
@@ -13,10 +15,12 @@ public class CityInformationPresenter implements CityInformationContract.Present
 
     public CityInformationPresenter(String name, double max_temp, double min_temp, String description, CityInformationContract.View mView){
         this.name = name;
-        this.max_temp = max_temp;
-        this.min_temp = min_temp;
+
+        this.max_temp = (max_temp - 273.15);
+        this.min_temp = (min_temp - 273.15);
         this.description = description;
         this.mView = mView;
+        mView.setPresenter(this);
     }
 
     @Override
@@ -27,6 +31,7 @@ public class CityInformationPresenter implements CityInformationContract.Present
     public void loadCityInformation(){
         mView.onLoadCityInformation(name, max_temp, min_temp, description);
     }
+
 
     @Override
     public void setView(BaseView view) {

@@ -15,4 +15,5 @@ public interface OpenWeatherDataSource {
     }
 
     void requestWeatherData(double lat, double lon, int count, String apiKey, RequestWeatherDataCallback callback);
+
 }
