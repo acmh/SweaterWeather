@@ -1,5 +1,6 @@
 package me.acmh.sweaterweather.screens.citylist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import me.acmh.sweaterweather.R;
 import me.acmh.sweaterweather.data.City;
+import me.acmh.sweaterweather.screens.cityinformation.CityInformationActivity;
 import me.acmh.sweaterweather.screens.map.MapContract;
 
 /**
@@ -72,8 +74,13 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     }
 
     @Override
-    public void showLoadingCityList() {
-
+    public void showLoadingCityList(City c) {
+        Intent it = new Intent(getActivity(), CityInformationActivity.class);
+        it.putExtra("name", c.getNome());
+        it.putExtra("description", c.getWeatherDescription());
+        it.putExtra("maxTemp", c.getMaxTemperature());
+        it.putExtra("minTemp", c.getMinTemperature());
+        startActivity(it);
     }
 }
 

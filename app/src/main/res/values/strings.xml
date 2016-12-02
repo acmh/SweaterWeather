@@ -3,4 +3,8 @@
     <string name="title_activity_maps">Map</string>
     <string name="search">Search</string>
     <string name="cities">Cities</string>
+    <string name="information">City Information</string>
+    <string name="max_temp_label">Max Temperature</string>
+    <string name="min_temp_label">Min Temperature</string>
+    <string name="description_temp_label">Description</string>
 </resources>

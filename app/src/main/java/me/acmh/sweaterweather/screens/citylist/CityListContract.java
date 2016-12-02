@@ -7,14 +7,11 @@ import me.acmh.sweaterweather.bases.BaseView;
 import me.acmh.sweaterweather.data.City;
 import me.acmh.sweaterweather.screens.map.MapContract;
 
-/**
- * Created by acmh on 02/12/2016.
- */
 
 public interface CityListContract {
     interface View extends BaseView<CityListContract.Presenter> {
         void onLoadCityLst(List<City> cities);
-        void showLoadingCityList();
+        void showLoadingCityList(City c);
     }
 
     interface Presenter extends BasePresenter {

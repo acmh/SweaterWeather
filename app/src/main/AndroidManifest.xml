@@ -39,7 +39,7 @@
         </activity>
 
         <activity android:name=".screens.citylist.CityListActivity"/>
-
+        <activity android:name=".screens.cityinformation.CityInformationActivity"/>
     </application>
 
 </manifest>

@@ -16,9 +16,6 @@ import me.acmh.sweaterweather.R;
 import me.acmh.sweaterweather.data.City;
 import me.acmh.sweaterweather.utils.OpenWeatherUtils;
 
-/**
- * Created by acmh on 02/12/2016.
- */
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityHolder>{
 

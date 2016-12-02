@@ -1,5 +1,7 @@
 package me.acmh.sweaterweather.screens.citylist;
 
+import android.content.Intent;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.List;
@@ -62,7 +64,6 @@ public class CityListPresenter implements CityListContract.Presenter {
 
     @Override
     public void openCityDetails(City c) {
-
-
+        mView.showLoadingCityList(c);
     }
 }
