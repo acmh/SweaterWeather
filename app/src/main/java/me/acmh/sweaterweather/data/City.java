@@ -1,12 +1,6 @@
 package me.acmh.sweaterweather.data;
 
 public class City {
-    public City(String nome, String maxTemperature, String minTemperature, String weatherDescription) {
-        this.nome = nome;
-        this.maxTemperature = maxTemperature;
-        this.minTemperature = minTemperature;
-        this.weatherDescription = weatherDescription;
-    }
 
     public String getNome() {
         return nome;
@@ -16,19 +10,19 @@ public class City {
         this.nome = nome;
     }
 
-    public String getMaxTemperature() {
+    public double getMaxTemperature() {
         return maxTemperature;
     }
 
-    public void setMaxTemperature(String maxTemperature) {
+    public void setMaxTemperature(double maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
 
-    public String getMinTemperature() {
+    public double getMinTemperature() {
         return minTemperature;
     }
 
-    public void setMinTemperature(String minTemperature) {
+    public void setMinTemperature(double minTemperature) {
         this.minTemperature = minTemperature;
     }
 
@@ -40,9 +34,16 @@ public class City {
         this.weatherDescription = weatherDescription;
     }
 
+    public City(String nome, double maxTemperature, double minTemperature, String weatherDescription) {
+        this.nome = nome;
+        this.maxTemperature = maxTemperature;
+        this.minTemperature = minTemperature;
+        this.weatherDescription = weatherDescription;
+    }
+
     private String nome;
-    private String maxTemperature;
-    private String minTemperature;
+    private double maxTemperature;
+    private double minTemperature;
     private String weatherDescription;
 
 }

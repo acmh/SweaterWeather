@@ -65,7 +65,7 @@ public class MapActivity extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.radar_menu_btn:
-
+                mapPresenter.onSearchClick();
 
                 break;
 

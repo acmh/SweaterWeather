@@ -1,6 +1,9 @@
 package me.acmh.sweaterweather.screens.map;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,6 +22,7 @@ public class MapPresenter implements MapContract.Presenter {
     MarkerOptions markerOptions;
     Marker marker;
     MapContract.View mView;
+
 
     MapPresenter(MapContract.View v, MarkerOptions markerOptions){
         this.mView = v;
@@ -62,8 +66,12 @@ public class MapPresenter implements MapContract.Presenter {
     }
 
     @Override
-    public void onSearchClickCallback() {
-        
+    public void onSearchClick() {
+        if(marker == null){
+            mView.showMessage("You must select a location first");
+        }else{
+           mView.showCityListUI(markerOptions.getPosition());
+        }
     }
 
 
