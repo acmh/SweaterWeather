@@ -6,6 +6,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 import me.acmh.sweaterweather.R;
 import me.acmh.sweaterweather.data.openweathersource.OpenWeatherRepository;
 import me.acmh.sweaterweather.data.openweathersource.remote.OpenWeatherRemoteDataSource;
@@ -37,6 +41,19 @@ public class CityListActivity extends AppCompatActivity {
         OpenWeatherRepository repositoryInstance  = OpenWeatherRepository.getInstance(OpenWeatherRemoteDataSource.getInstance(getApplicationContext()));
         double lat = getIntent().getDoubleExtra("lat",0.0);
         double lon = getIntent().getDoubleExtra("lon", 0.0);
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+                .memoryCacheSizePercentage(2)
+                .defaultDisplayImageOptions(new DisplayImageOptions.Builder()
+                        .showImageOnLoading(android.R.drawable.ic_menu_rotate)
+                        .showImageOnFail(android.R.drawable.ic_menu_help)
+                        .cacheInMemory(true)
+                        .cacheOnDisk(false)
+                        .build())
+                .build();
+
+        ImageLoader.getInstance().init(config);
+
 
         new CityListPresenter(repositoryInstance, fragment, lat, lon);
     }

@@ -75,7 +75,7 @@ public class OpenWeatherRemoteDataSource implements OpenWeatherDataSource{
                     case 200:
                         ArrayList<City> cityList = new ArrayList<City>();
                         for (ServerResponseCity c : response.body().cityList){
-                            cityList.add(new City(c.name, c.temperature.temp_max, c.temperature.temp_min, c.weather[0].description));
+                            cityList.add(new City(c.name, c.temperature.temp_max, c.temperature.temp_min, c.weather[0].description, c.weather[0].icon));
                         }
                         callback.onSucess(cityList);
                         break;

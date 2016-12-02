@@ -26,6 +26,15 @@ public class City {
         this.minTemperature = minTemperature;
     }
 
+    public String getIconName() {
+        return iconName;
+    }
+
+    public void setIconName(String iconName) {
+        this.iconName = iconName;
+    }
+
+
     public String getWeatherDescription() {
         return weatherDescription;
     }
@@ -34,16 +43,18 @@ public class City {
         this.weatherDescription = weatherDescription;
     }
 
-    public City(String nome, double maxTemperature, double minTemperature, String weatherDescription) {
+    public City(String nome, double maxTemperature, double minTemperature, String weatherDescription, String iconName) {
         this.nome = nome;
         this.maxTemperature = maxTemperature;
         this.minTemperature = minTemperature;
         this.weatherDescription = weatherDescription;
+        this.iconName = iconName;
     }
 
     private String nome;
     private double maxTemperature;
     private double minTemperature;
     private String weatherDescription;
+    private String iconName;
 
 }

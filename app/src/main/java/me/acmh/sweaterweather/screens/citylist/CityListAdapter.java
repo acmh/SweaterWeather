@@ -7,17 +7,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import me.acmh.sweaterweather.R;
 import me.acmh.sweaterweather.data.City;
+import me.acmh.sweaterweather.utils.OpenWeatherUtils;
 
 /**
  * Created by acmh on 02/12/2016.
  */
 
-public class CityListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityHolder>{
 
     private final ArrayList<City> mCities;
     private final View.OnClickListener mOnClickListener;
@@ -28,7 +31,7 @@ public class CityListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_cities, parent, false);
         v.setOnClickListener(mOnClickListener);
         CityHolder ch = new CityHolder(v);
@@ -36,11 +39,12 @@ public class CityListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(CityHolder holder, int position) {
         CityHolder ch = (CityHolder) holder;
         City c = mCities.get(position);
         ch.tv_cityName.setText(c.getNome());
-        //TODO Set respective weather icon
+        holder.loader = ImageLoader.getInstance();
+        holder.loader.displayImage(OpenWeatherUtils.BASE_IMAGE_URL + c.getIconName() + OpenWeatherUtils.IMAGE_EXTENSION, holder.iv_thumb);
     }
 
     public void setCityList(List<City> cities) {
@@ -58,9 +62,16 @@ public class CityListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return mCities.get(position);
     }
 
-    class CityHolder extends RecyclerView.ViewHolder{
+    @Override
+    public void onViewRecycled(CityHolder holder) {
+        super.onViewRecycled(holder);
+        holder.loader.cancelDisplayTask(holder.iv_thumb);
+    }
+
+    public static class CityHolder extends RecyclerView.ViewHolder{
         public ImageView iv_thumb;
         public TextView tv_cityName;
+        public ImageLoader loader;
 
         public CityHolder(View itemView){
             super(itemView);
@@ -68,4 +79,5 @@ public class CityListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tv_cityName = (TextView) itemView.findViewById(R.id.city_name);
         }
     }
+
 }
