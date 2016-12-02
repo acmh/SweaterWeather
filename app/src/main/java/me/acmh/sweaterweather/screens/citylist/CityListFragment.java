@@ -1,6 +1,8 @@
 package me.acmh.sweaterweather.screens.citylist;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -112,6 +114,12 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     public void onDetach() {
         super.onDetach();
         dissmissDialogIfShowing();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
     }
 
     private void dissmissDialogIfShowing(){

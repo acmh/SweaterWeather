@@ -79,4 +79,8 @@ public class CityListPresenter implements CityListContract.Presenter {
 
         mView.showCityInformationUI(c);
     }
+
+    public static void invalidateInstance(){
+        INSTANCE = null;
+    }
 }
