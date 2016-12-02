@@ -14,6 +14,7 @@ public interface CityListContract {
         void showCityInformationUI(City c);
         void showLoading();
         void onLoadCityListError();
+        void clearCityList();
 
     }
 

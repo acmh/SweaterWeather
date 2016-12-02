@@ -111,6 +111,11 @@ public class CityListFragment extends Fragment implements CityListContract.View,
     }
 
     @Override
+    public void clearCityList() {
+        mCityListAdapter.clearAll();
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         dissmissDialogIfShowing();

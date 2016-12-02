@@ -81,6 +81,7 @@ public class CityListPresenter implements CityListContract.Presenter {
     }
 
     public static void invalidateInstance(){
+        INSTANCE.mView.clearCityList();
         INSTANCE = null;
     }
 }

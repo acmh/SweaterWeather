@@ -50,6 +50,11 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityHo
         notifyDataSetChanged();
     }
 
+    public void clearAll(){
+        mCities.clear();
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return mCities.size();
