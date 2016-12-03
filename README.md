@@ -1,6 +1,10 @@
 # SweaterWeather
 Project for Inloco Interview
 
+Map Screen                 |  Cities List Screen      | City Information Screen 
+:-------------------------:|:-------------------------|:-------------------------
+![](http://i.imgur.com/9OoYc3f.png)  |  ![](http://i.imgur.com/UMOwlcp.png)| ![](http://i.imgur.com/Vl5T9iQ.png)
+
 ## Getting Started
 This sample uses the Gradle build system. To build this project, use the "gradlew build" command or use "Import Project" in Android Studio.
 
