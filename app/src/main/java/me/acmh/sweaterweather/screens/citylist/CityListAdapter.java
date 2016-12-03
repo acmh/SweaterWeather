@@ -1,5 +1,6 @@
 package me.acmh.sweaterweather.screens.citylist;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,6 +80,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityHo
             super(itemView);
             iv_thumb = (ImageView) itemView.findViewById(R.id.weather_icon);
             tv_cityName = (TextView) itemView.findViewById(R.id.city_name);
+            tv_cityName.setTextColor(Color.parseColor("#bdbdbd"));
         }
     }
 
