@@ -43,6 +43,8 @@ This sample uses the Gradle build system. To build this project, use the "gradle
 ![alt text](http://i.imgur.com/tIdZkl3.png "Comparison  of AsyncHttp ,Volley and Retrofit")
  <p align="justify">
    *Comparison  of AsyncHttp ,Volley and Retrofit*
-</p>
+</p> 
 
+### Open Weather Map
 
+An effective API, although at some locations, the temperature forecast becomes erroneous. For example: both maximum and minimum temperatures are the same (to see this behavior, do a request in Recife). Therefore, I recommend, at least, the use of two API's in upcoming projects.
