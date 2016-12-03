@@ -21,9 +21,6 @@ import me.acmh.sweaterweather.data.City;
 import me.acmh.sweaterweather.screens.cityinformation.CityInformationActivity;
 import me.acmh.sweaterweather.screens.map.MapContract;
 
-/**
- * Created by acmh on 02/12/2016.
- */
 
 public class CityListFragment extends Fragment implements CityListContract.View, View.OnClickListener {
 

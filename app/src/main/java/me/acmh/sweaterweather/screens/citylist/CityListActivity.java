@@ -16,10 +16,6 @@ import me.acmh.sweaterweather.data.openweathersource.OpenWeatherRepository;
 import me.acmh.sweaterweather.data.openweathersource.remote.OpenWeatherRemoteDataSource;
 import me.acmh.sweaterweather.utils.ActivityUtils;
 
-/**
- * Created by acmh on 02/12/2016.
- */
-
 public class CityListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

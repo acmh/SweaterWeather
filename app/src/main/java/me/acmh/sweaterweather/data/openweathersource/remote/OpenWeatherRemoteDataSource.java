@@ -19,10 +19,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by acmh on 02/12/2016.
- */
-
 public class OpenWeatherRemoteDataSource implements OpenWeatherDataSource{
     private static final String BASE_URL = OpenWeatherUtils.BASE_URL;
     private final Context mContext;

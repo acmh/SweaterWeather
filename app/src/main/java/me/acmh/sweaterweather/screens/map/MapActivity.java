@@ -18,9 +18,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import me.acmh.sweaterweather.R;
 import me.acmh.sweaterweather.utils.ActivityUtils;
 
-/**
- * Created by acmh on 01/12/2016.
- */
 
 public class MapActivity extends AppCompatActivity {
 

@@ -11,10 +11,6 @@ import me.acmh.sweaterweather.R;
 import me.acmh.sweaterweather.screens.citylist.CityListFragment;
 import me.acmh.sweaterweather.utils.ActivityUtils;
 
-/**
- * Created by acmh on 02/12/2016.
- */
-
 public class CityInformationActivity  extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +30,7 @@ public class CityInformationActivity  extends AppCompatActivity{
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),fragment,R.id.content_frame);
         }
 
-        //PEGAR DA INTENT OS VALORES NECESSARIOS
+        //Get from intent the values
         String name = getIntent().getStringExtra("name");
         String description = getIntent().getStringExtra("description");
         double max_temp = getIntent().getDoubleExtra("maxTemp", 0.0);

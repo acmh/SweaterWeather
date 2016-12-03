@@ -11,10 +11,6 @@ import me.acmh.sweaterweather.data.openweathersource.OpenWeatherDataSource;
 import me.acmh.sweaterweather.data.openweathersource.OpenWeatherRepository;
 import me.acmh.sweaterweather.utils.OpenWeatherUtils;
 
-/**
- * Created by acmh on 02/12/2016.
- */
-
 public class CityListPresenter implements CityListContract.Presenter {
     private final OpenWeatherRepository mRepository;
     private CityListContract.View mView;

@@ -32,7 +32,7 @@ public class MapPresenter implements MapContract.Presenter {
 
     @Override
     public void start() {
-        //CHAMAR AS FUNCOES DE BACKEND
+
     }
 
     @Override
